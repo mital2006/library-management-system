@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar Panel Cleaning Robot | Project Tracker & Consultation</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts: Inter for UI & JetBrains Mono for telemetry/countdown -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    
+    <!-- Top Navigation Header -->
+    <header class="navbar">
+      <div class="nav-container">
+        <div class="brand-group">
+          <div class="solar-logo">
+            <!-- Solar Panel & Sun SVG -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="M4.93 4.93l1.41 1.41"></path>
+              <path d="M17.66 17.66l1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="M6.34 17.66l-1.41 1.41"></path>
+              <path d="M19.07 4.93l-1.41 1.41"></path>
+            </svg>
+          </div>
+          <div>
+            <h1 class="brand-title">Solar Panel Cleaning Robot</h1>
+            <p class="brand-subtitle">Autonomous Dust Mitigation &bull; Engineering Project Tracker</p>
+          </div>
+        </div>
+
+        <nav class="nav-menu">
+          <a href="#overview" class="nav-link active">Overview</a>
+          <a href="#countdown-section" class="nav-link">Countdown &amp; Timeline</a>
+          <a href="#task-section" class="nav-link">Tasks (<span id="navPendingCount">4</span> Pending)</a>
+          <a href="#consultation-section" class="nav-link nav-consult-link">
+            Consultation Report
+            <span class="nav-pulse-dot"></span>
+          </a>
+        </nav>
+
+        <div class="nav-badges">
+          <span class="badge badge-priority" id="headerPriorityBadge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            Priority: High
+          </span>
+          <span class="badge badge-status" id="headerStatusBadge">
+            <span class="pulse-indicator"></span>
+            Status: Deadline Approaching
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-body">
+      
+      <!-- Dynamic Deadline Warning Banner (Near Deadline / Overdue Alert) -->
+      <section class="warning-section" id="warningBannerSection">
+        <div class="alert-banner alert-warning-urgent" id="deadlineAlertBanner">
+          <div class="alert-icon-wrapper">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+          </div>
+          <div class="alert-content">
+            <h3 class="alert-heading" id="alertTitle">URGENT DEADLINE ALERT: Fewer Than 5 Days Remaining!</h3>
+            <p class="alert-description" id="alertDescription">
+              The project deadline of <strong id="alertDateText">October 20, 2026</strong> is approaching rapidly. 
+              <span id="alertPendingNotice">4 critical pending tasks require immediate resolution</span> before physical sign-off and final presentation.
+            </p>
+          </div>
+          <div class="alert-actions">
+            <a href="#task-section" class="btn btn-alert-action">Resolve Tasks &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Hero & Description Card -->
+      <section class="hero-section" id="overview">
+        <div class="hero-card">
+          <div class="hero-left">
+            <div class="hero-tag">
+              <span class="solar-dot"></span>
+              Autonomous Photovoltaic Maintenance System
+            </div>
+            <h2 class="hero-heading">Solar Panel Cleaning Robot</h2>
+            <p class="hero-body">
+              Dust, particulate soot, and bird droppings cause soiling losses reducing solar panel energy yield by up to <strong>25% to 35%</strong>. 
+              This automated robotic crawler maneuvers across tilted solar arrays to sweep and clean surfaces autonomously without scratching antireflective glass coatings or wasting water.
+            </p>
+
+            <div class="hero-metadata">
+              <div class="meta-pill">
+                <span class="meta-label">Current Phase:</span>
+                <strong class="meta-val" id="heroPhaseVal">Pre-Testing &amp; Documentation</strong>
+              </div>
+              <div class="meta-pill">
+                <span class="meta-label">Official Deadline:</span>
+                <strong class="meta-val solar-gold-text" id="heroDeadlineVal">October 20, 2026</strong>
+              </div>
+              <div class="meta-pill">
+                <span class="meta-label">Physical Hardware State:</span>
+                <strong class="meta-val text-pending" id="heroHardwareState">Testing Pending (Not Verified)</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <!-- Project Overall Progress Gauge Card -->
+            <div class="progress-gauge-card">
+              <div class="gauge-header">
+                <span class="gauge-title">Project Target Progress</span>
+                <span class="gauge-score" id="heroProgressPercentage">70%</span>
+              </div>
+              <div class="progress-bar-track">
+                <div class="progress-bar-glow" id="heroProgressBar" style="width: 70%;"></div>
+              </div>
+              <div class="progress-milestone-info">
+                <span>Initial Target: <strong>70%</strong></span>
+                <span id="tasksSummaryText">9 of 13 milestones completed</span>
+              </div>
+              <p class="gauge-footnote">
+                Progress updates dynamically as verification tasks are checked off below.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dynamic Real-time Countdown Section -->
+      <section class="countdown-section" id="countdown-section">
+        <div class="card countdown-card">
+          <div class="card-header countdown-header">
+            <div>
+              <div class="header-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Live Schedule Engine</span>
+              </div>
+              <h3 class="card-title">Deadline Countdown Timer</h3>
+              <p class="card-subtitle">Real-time dynamic calculation relative to the target delivery date</p>
+            </div>
+
+            <!-- Deadline Editor Controls -->
+            <div class="deadline-controls">
+              <div class="deadline-picker-box">
+                <label for="deadlineDateInput" class="date-label">Edit Target Deadline:</label>
+                <div class="input-inline">
+                  <input type="datetime-local" id="deadlineDateInput" class="datetime-input">
+                  <button class="btn btn-solar" id="updateDeadlineBtn">Update Deadline</button>
+                </div>
+              </div>
+              <button class="btn btn-secondary-outline btn-sm" id="resetDefaultDeadlineBtn" title="Reset to October 20, 2026">
+                Reset Default (Oct 20)
+              </button>
+            </div>
+          </div>
+
+          <!-- Countdown Digits Grid -->
+          <div class="countdown-display-grid">
+            <!-- Days -->
+            <div class="countdown-box" id="daysBox">
+              <div class="digit-wrapper">
+                <span class="countdown-digit" id="countDays">03</span>
+              </div>
+              <span class="countdown-unit">Calendar Days</span>
+            </div>
+
+            <!-- Hours -->
+            <div class="countdown-box">
+              <div class="digit-wrapper">
+                <span class="countdown-digit" id="countHours">18</span>
+              </div>
+              <span class="countdown-unit">Hours</span>
+            </div>
+
+            <!-- Minutes -->
+            <div class="countdown-box">
+              <div class="digit-wrapper">
+                <span class="countdown-digit" id="countMinutes">42</span>
+              </div>
+              <span class="countdown-unit">Minutes</span>
+            </div>
+
+            <!-- Seconds -->
+            <div class="countdown-box box-seconds">
+              <div class="digit-wrapper">
+                <span class="countdown-digit" id="countSeconds">30</span>
+              </div>
+              <span class="countdown-unit">Seconds</span>
+            </div>
+          </div>
+
+          <!-- Countdown Footer -->
+          <div class="countdown-footer">
+            <div class="footer-left">
+              <span class="countdown-status-indicator" id="countdownStatusIndicator">
+                <span class="pulsing-amber-dot"></span>
+                <span id="countdownStatusMessage">Active Countdown: 3 days remaining until scheduled sign-off</span>
+              </span>
+            </div>
+            <div class="footer-presets">
+              <span class="preset-label">Test Simulation Scenarios:</span>
+              <button class="btn-preset-chip" id="presetTomorrow">In 1 Day</button>
+              <button class="btn-preset-chip" id="presetThreeDays">In 3 Days</button>
+              <button class="btn-preset-chip" id="presetOverdue">Set Overdue (Past)</button>
+              <button class="btn-preset-chip" id="presetTwoWeeks">In 14 Days</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Task Checklist & Milestones Section -->
+      <section class="task-section" id="task-section">
+        <div class="card task-card">
+          <div class="card-header task-card-header">
+            <div>
+              <h3 class="card-title">Project Deliverables &amp; Remaining Task Checklist</h3>
+              <p class="card-subtitle">Check off verified milestones to automatically update project target progress</p>
+            </div>
+
+            <!-- Quick Action Toolbar -->
+            <div class="task-toolbar">
+              <button class="btn btn-outline-solar" id="filterPendingOnlyBtn">Show Pending Only</button>
+              <button class="btn btn-outline-light" id="filterAllTasksBtn">Show All Tasks</button>
+              <button class="btn btn-solar-ghost" id="checkAllPendingBtn">Check All Pending</button>
+            </div>
+          </div>
+
+          <!-- Pending Tasks Highlight Container (The 4 core requirements) -->
+          <div class="pending-spotlight-box">
+            <div class="spotlight-header">
+              <div class="spotlight-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <span>Required Critical Pending Deliverables (<span id="pendingCountBadge">4</span> remaining)</span>
+              </div>
+              <span class="badge badge-amber">Target Completion: Oct 20, 2026</span>
+            </div>
+
+            <div class="tasks-checklist" id="pendingTasksList">
+              <!-- Task 1: Complete robot testing -->
+              <label class="task-row task-pending-item" data-task="robot-testing">
+                <input type="checkbox" class="task-checkbox" id="task_robot_testing">
+                <span class="custom-checkbox"></span>
+                <div class="task-info">
+                  <div class="task-title-line">
+                    <strong class="task-name">Complete robot testing</strong>
+                    <span class="badge-task-priority priority-crit">Critical</span>
+                  </div>
+                  <p class="task-desc">
+                    Field testing of dry-sweep microfiber roller, edge-detection sensors, and incline climbing traction on 20&deg; tilted solar glass panels.
+                  </p>
+                  <small class="hardware-warning-text">&cross; Physical robot has NOT been fully tested yet. Do not check off until empirical tests pass.</small>
+                </div>
+              </label>
+
+              <!-- Task 2: Prepare project documentation -->
+              <label class="task-row task-pending-item" data-task="project-doc">
+                <input type="checkbox" class="task-checkbox" id="task_project_doc">
+                <span class="custom-checkbox"></span>
+                <div class="task-info">
+                  <div class="task-title-line">
+                    <strong class="task-name">Prepare project documentation</strong>
+                    <span class="badge-task-priority priority-high">High</span>
+                  </div>
+                  <p class="task-desc">
+                    Compile electrical schematics, bill of materials (BOM), sensor pinouts, software architecture diagrams, and mathematical efficiency models.
+                  </p>
+                </div>
+              </label>
+
+              <!-- Task 3: Finalize the presentation -->
+              <label class="task-row task-pending-item" data-task="finalize-presentation">
+                <input type="checkbox" class="task-checkbox" id="task_finalize_presentation">
+                <span class="custom-checkbox"></span>
+                <div class="task-info">
+                  <div class="task-title-line">
+                    <strong class="task-name">Finalize the presentation</strong>
+                    <span class="badge-task-priority priority-high">High</span>
+                  </div>
+                  <p class="task-desc">
+                    Assemble executive slide deck, cost-benefit analysis metrics for commercial solar farms, and high-resolution demonstration video clips.
+                  </p>
+                </div>
+              </label>
+
+              <!-- Task 4: Verify the final demonstration -->
+              <label class="task-row task-pending-item" data-task="final-demo">
+                <input type="checkbox" class="task-checkbox" id="task_final_demo">
+                <span class="custom-checkbox"></span>
+                <div class="task-info">
+                  <div class="task-title-line">
+                    <strong class="task-name">Verify the final demonstration</strong>
+                    <span class="badge-task-priority priority-crit">Critical</span>
+                  </div>
+                  <p class="task-desc">
+                    Live dry-run demonstration rehearsal, battery pack charge cycle check (minimum 45 minutes autonomy), and remote emergency stop fail-safe verification.
+                  </p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Completed Architectural Milestones (9 Pre-completed milestones establishing baseline 70%) -->
+          <div class="completed-milestones-box">
+            <h4 class="completed-section-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Engineering Foundation (Completed Milestones)
+            </h4>
+
+            <div class="tasks-checklist" id="completedTasksList">
+              <label class="task-row task-done-item">
+                <input type="checkbox" class="task-checkbox" checked id="base_chassis">
+                <span class="custom-checkbox"></span>
+                <div class="task-info">
+                  <strong class="task-name">Lightweight Aluminum Chassis Fabrication</strong>
+                  <p class="task-desc">Corrosion-resistant dual-track frame with polyurethane rubber tracks for optimal solar glass adhesion.</p>
+                </div>
+              </label>
+
+              <label class="task-row task-done-item">
+                <input type="checkbox" class="task-checkbox" checked id="base_wiper">
+                <span class="custom-checkbox"></span>
+                <div class="task-info">
+                  <strong class="task-name">Dual-Speed Roller Brush &amp; Wiper Mechanism</strong>
+                  <p class="task-desc">High-torque DC gearmotor driving dual microfiber roller brushes for water-free dust displacement.</p>
+                </div>
+              </label>
+
+              <label class="task-row task-done-item">
+                <input type="checkbox" class="task-checkbox" checked id="base_mcu">
+                <span class="custom-checkbox"></span>
+                <div class="task-info">
+                  <strong class="task-name">Microcontroller &amp; Motor Driver Assembly</strong>
+                  <p class="task-desc">ESP32 SoC integrated with dual L298N H-bridge motor drivers, optical encoders, and optocoupler isolation.</p>
+                </div>
+              </label>
+
+              <label class="task-row task-done-item">
+                <input type="checkbox" class="task-checkbox" checked id="base_sensors">
+                <span class="custom-checkbox"></span>
+                <div class="task-info">
+                  <strong class="task-name">Optical Dust Density Sensor Integration</strong>
+                  <p class="task-desc">Infrared scattering dust sensor calibrated for particulate matter (PM2.5 / PM10) soiling detection.</p>
+                </div>
+              </label>
+
+              <label class="task-row task-done-item">
+                <input type="checkbox" class="task-checkbox" checked id="base_edge">
+                <span class="custom-checkbox"></span>
+                <div class="task-info">
+                  <strong class="task-name">Edge Detection &amp; Fall-Prevention Sensors</strong>
+                  <p class="task-desc">Four corner ultrasonic and downward-facing infrared sensors preventing panel fall-off.</p>
+                </div>
+              </label>
+
+              <label class="task-row task-done-item">
+                <input type="checkbox" class="task-checkbox" checked id="base_battery">
+                <span class="custom-checkbox"></span>
+                <div class="task-info">
+                  <strong class="task-name">Battery Management System (12V LiFePO4)</strong>
+                  <p class="task-desc">High-discharge battery pack with integrated BMS overvoltage, undervoltage, and thermal cutoff protection.</p>
+                </div>
+              </label>
+
+              <label class="task-row task-done-item">
+                <input type="checkbox" class="task-checkbox" checked id="base_telemetry">
+                <span class="custom-checkbox"></span>
+                <div class="task-info">
+                  <strong class="task-name">Wireless Telemetry &amp; Manual Override GUI</strong>
+                  <p class="task-desc">Wi-Fi/Bluetooth web interface transmitting battery voltage, motor RPM, and cleaning efficiency metrics.</p>
+                </div>
+              </label>
+
+              <label class="task-row task-done-item">
+                <input type="checkbox" class="task-checkbox" checked id="base_estop">
+                <span class="custom-checkbox"></span>
+                <div class="task-info">
+                  <strong class="task-name">Hardware Emergency Stop Circuit</strong>
+                  <p class="task-desc">Physical latching kill-switch and RF remote control emergency stop for operator safety.</p>
+                </div>
+              </label>
+
+              <label class="task-row task-done-item">
+                <input type="checkbox" class="task-checkbox" checked id="base_weather">
+                <span class="custom-checkbox"></span>
+                <div class="task-info">
+                  <strong class="task-name">Weather-Resistant Enclosure (IP65)</strong>
+                  <p class="task-desc">UV-stabilized 3D-printed enclosure protecting all core logic from desert heat, wind, and sand ingress.</p>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Consultation Report Section -->
+      <section class="consultation-section" id="consultation-section">
+        <div class="card consultation-card">
+          <div class="consultation-header">
+            <div class="consultation-title-group">
+              <div class="consult-badge-row">
+                <span class="badge badge-status" id="consultStatusBadge">Status: Deadline Approaching</span>
+                <span class="badge badge-priority">Priority: High</span>
+                <span class="badge badge-solar">Formal Consultation Document</span>
+              </div>
+              <h3 class="consultation-title">Engineering Project Consultation &amp; Risk Assessment Report</h3>
+              <p class="consultation-subtitle">
+                Systematic review of delivery schedule, remaining technical debt, hardware verification dependencies, and presentation readiness.
+              </p>
+            </div>
+          </div>
+
+          <!-- Consultation Metrics Table / Grid -->
+          <div class="consultation-metrics-grid">
+            <div class="consult-metric-box">
+              <span class="c-label">Delivery Deadline</span>
+              <strong class="c-val solar-gold-text" id="consultDeadlineVal">October 20, 2026</strong>
+              <small class="c-sub" id="consultDaysLeftSub">Fewer than 5 days remaining</small>
+            </div>
+
+            <div class="consult-metric-box">
+              <span class="c-label">Current Target Progress</span>
+              <strong class="c-val text-success" id="consultProgressVal">70%</strong>
+              <small class="c-sub" id="consultTasksRemainingSub">4 tasks remaining</small>
+            </div>
+
+            <div class="consult-metric-box">
+              <span class="c-label">Physical Robot Testing</span>
+              <strong class="c-val text-pending" id="consultTestingStatusVal">Unverified / Incomplete</strong>
+              <small class="c-sub">Hardware tests must be logged</small>
+            </div>
+
+            <div class="consult-metric-box">
+              <span class="c-label">Schedule Risk Level</span>
+              <strong class="c-val text-danger">High (Compression Risk)</strong>
+              <small class="c-sub">Requires parallel execution</small>
+            </div>
+          </div>
+
+          <!-- Risk Assessment & Engineering Directives -->
+          <div class="consult-content-body">
+            <div class="consult-grid-columns">
+              
+              <!-- Column 1: Critical Findings & Observations -->
+              <div class="consult-col">
+                <h4 class="col-heading">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                  Critical Audit Observations
+                </h4>
+                <ul class="consult-bullet-list">
+                  <li>
+                    <strong>Physical Verification Gap:</strong> Although the chassis and motor circuitry are assembled, the physical robot has not undergone verified slope trials on real solar panels. Empirical test data is mandatory before presentation sign-off.
+                  </li>
+                  <li>
+                    <strong>Timeline Sensitivity:</strong> With the October 20 deadline imminent, less than 5 days remain. Simultaneous task execution is necessary to prevent deliverable collisions.
+                  </li>
+                  <li>
+                    <strong>Documentation &amp; Presentation Alignment:</strong> Slide deck and technical reports must highlight efficiency recovery percentages (e.g. +30% power boost) rather than purely mechanical specs.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 2: Recommended Remediation Roadmap -->
+              <div class="consult-col">
+                <h4 class="col-heading">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                  </svg>
+                  Actionable Remediation Punch List
+                </h4>
+                <div class="remediation-steps">
+                  <div class="step-card">
+                    <span class="step-num">Step 1</span>
+                    <div>
+                      <strong>Execute Slope &amp; Roller Traction Test</strong>
+                      <p>Conduct trial runs on a minimum 15&deg; angled solar panel. Record roller RPM and dust capture rate.</p>
+                    </div>
+                  </div>
+                  <div class="step-card">
+                    <span class="step-num">Step 2</span>
+                    <div>
+                      <strong>Compile Technical Report &amp; Schematics</strong>
+                      <p>Consolidate pinout tables and battery charge curves into the final documentation binder.</p>
+                    </div>
+                  </div>
+                  <div class="step-card">
+                    <span class="step-num">Step 3</span>
+                    <div>
+                      <strong>Dry-Run Rehearsal &amp; Backup Video</strong>
+                      <p>Record a 60-second high-definition operation video as an emergency backup for live demonstration glitches.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Sign-Off & Status Disclaimer -->
+            <div class="consultation-disclaimer">
+              <strong>Engineering Integrity Notice:</strong> Physical robot testing status will remain officially recorded as "Pending" until the user validates empirical trials using the checklist above.
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="solar-gold-text">&bull; Solar Panel Cleaning Robot &bull;</span> Autonomous Clean-Tech Automation
+        </div>
+        <p class="footer-copy">
+          Designed with modern dark-blue, white, and solar-yellow styling. Dynamic deadline calculation &bull; Unbiased engineering consultation.
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
